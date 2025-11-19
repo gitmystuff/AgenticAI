@@ -61,8 +61,8 @@ HF_TOKEN=hf_xxxxxxxxxxxxxxxx
 
 ---
 
-### Step 2: Install Python Dependencies
-In your activated uv environment:
+### Step 2: Python Dependencies
+You should be setup in your activated uv environment but if you need to install something use the following:
 ```bash
 uv pip install openai anthropic python-dotenv requests ipython
 ```
