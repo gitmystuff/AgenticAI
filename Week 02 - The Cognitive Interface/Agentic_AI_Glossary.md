@@ -310,7 +310,7 @@ Instead of a single score, rate on multiple axes:
 }
 ```
 
-**Week 12 Connection:** Production evaluation suites test agents on domain-specific criteria (e.g., "Does the customer support agent resolve issues in <3 messages?").
+**Connection:** Production evaluation suites test agents on domain-specific criteria (e.g., "Does the customer support agent resolve issues in <3 messages?").
 
 ---
 
