@@ -1,4 +1,4 @@
-# Analysis: 06 - Exploring LLMs Notebook
+# Analysis: Exploring LLMs Notebook
 
 ## Executive Summary
 
@@ -13,15 +13,6 @@ This notebook demonstrates **foundational agentic AI competencies** by building 
 - ✅ Building a model-agnostic interface that swaps backends dynamically
 - ✅ Context windows, tokenization costs, and system prompting
 - ✅ Comparing cloud vs. local inference trade-offs
-
-### Secondary Competencies (from Course Framework)
-
-| Domain | Competency | Implementation in Notebook |
-|--------|-----------|---------------------------|
-| **C. Technical Implementation** | Reproducible Environments (uv) | Uses .env for API key isolation |
-| **C. Technical Implementation** | Structured Data Enforcement (Pydantic) | Parses JSON outputs from evaluator |
-| **B. Advanced Tool Integration** | Function Calling & Schema Definition | Demonstrates OpenAI-compatible API pattern |
-| **D. Production Safety** | Hallucination Detection & Evaluation | LLM-as-Judge for comparative assessment |
 
 ---
 
@@ -60,9 +51,9 @@ ollama.chat.completions.create(model=model, messages=messages)
 - Returning structured JSON results
 
 **Production Use Cases:**
-- **Newsletter Crew (Week 8):** Editor agent evaluates writer agent's drafts
-- **AutoGen Debates (Week 9):** Judge agent scores arguments
-- **Evaluation Suite (Week 12):** Automated quality checks before deployment
+- **Newsletter Crew:** Editor agent evaluates writer agent's drafts
+- **AutoGen Debates:** Judge agent scores arguments
+- **Evaluation Suite:** Automated quality checks before deployment
 
 ---
 
@@ -139,7 +130,7 @@ results_dict = json.loads(results)
 ranks = results_dict["results"]
 ```
 
-**Connection to Course Week 3:** This foreshadows the "Pydantic validators" week, where students will learn to **enforce** schemas rather than just *requesting* them.
+**Connection:** This foreshadows the "Pydantic validators" week, where we will learn to **enforce** schemas rather than just *requesting* them.
 
 ---
 
@@ -560,7 +551,7 @@ class EvaluationResult(BaseModel):
 results_dict = EvaluationResult.model_validate_json(results)
 ```
 
-**Skill:** Structured output enforcement (Week 3 competency)
+**Skill:** Structured output enforcement
 
 ---
 
@@ -579,51 +570,12 @@ Modify the evaluator to score on multiple dimensions:
 
 ---
 
-## Connection to Later Course Concepts
-
-### Week 4: Model Context Protocol (MCP)
-This notebook demonstrates the *concept* of MCP without implementing it:
-- Multiple "backends" (OpenAI, Anthropic, local models)
-- Unified interface for swapping between them
-- In Week 4, students will formalize this with Anthropic's MCP standard
-
----
-
-### Week 8: Role-Based Teams (CrewAI)
-The LLM-as-Judge pattern directly maps to CrewAI's "hierarchical" mode:
-```python
-# Future CrewAI code (Week 8)
-editor_agent = Agent(
-    role="Quality Evaluator",
-    goal="Rank newsletter drafts by clarity",
-    tools=[llm_evaluator_tool]
-)
-```
-
----
-
-### Week 12: Evaluation & Observability
-This notebook is a **proof-of-concept** for production evaluation:
-- Replace manual prompt with LangSmith traces
-- Add cost tracking for budgeting
-- Log rankings to a database for trend analysis
-
----
-
 ## Key Takeaways
 
-### For Students:
 1. **There is no "best" LLM**—different models excel at different tasks
 2. **Local models trade quality for privacy/cost**—know when to use each
 3. **Evaluation is subjective**—the judge's biases matter (even o3-mini has preferences)
 4. **Structured outputs require careful prompting**—"respond with JSON" isn't always enough
-
-### For Instructors:
-This notebook teaches:
-- ✅ Practical API integration (not just theory)
-- ✅ Cost-conscious model selection
-- ✅ Evaluation patterns used in production
-- ✅ Foundation for Week 4 (MCP) and Week 12 (Evaluation)
 
 Students completing this lab can confidently integrate any LLM provider into their Capstone projects.
 
@@ -661,18 +613,6 @@ time.sleep(1)  # Wait 1 second between requests
 
 ---
 
-## Assessment Rubric (For Instructors)
-
-| Criterion | Excellent (4) | Proficient (3) | Developing (2) | Needs Work (1) |
-|-----------|---------------|----------------|----------------|----------------|
-| **API Integration** | All 6 providers work flawlessly | 4-5 providers work | 2-3 providers work | 0-1 providers work |
-| **Environment Security** | API keys in .env, never exposed | Keys mostly secured | Keys partially exposed | Keys hardcoded in notebook |
-| **Error Handling** | Try-except blocks with clear messages | Some error handling | Minimal error handling | No error handling |
-| **Code Quality** | Well-commented, follows conventions | Mostly clean code | Some messy sections | Difficult to follow |
-| **Understanding** | Can explain LLM-as-Judge pattern | Understands basic flow | Limited understanding | Cannot explain approach |
-
----
-
 ## Further Reading
 
 ### Agentic AI Evaluation
@@ -693,10 +633,10 @@ time.sleep(1)  # Wait 1 second between requests
 
 ## Next Steps
 
-After completing this notebook, students should:
+After completing this notebook, you should:
 1. ✅ Be comfortable calling any LLM API
 2. ✅ Understand cost/performance trade-offs
 3. ✅ Know when to use local vs. cloud inference
-4. ✅ Be ready for Week 3 (Async Programming & Structured Output)
+4. ✅ Be ready for Async Programming & Structured Output
 
 **Suggested Homework:** Modify the notebook to evaluate LLMs on a domain-specific task (e.g., "Write SQL for this natural language query") and analyze which models excel at code generation.
