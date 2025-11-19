@@ -89,7 +89,7 @@ Respond with JSON: {{"results": ["1", "2", "3"]}}
 - **Criteria:** Vague instructions ("rank by quality") produce unreliable results
 - **Structured Output:** Force JSON to enable programmatic use
 
-**Week 8 Connection:** CrewAI's "hierarchical" mode uses this pattern—a manager agent evaluates worker agents.
+**Connection:** CrewAI's "hierarchical" mode uses this pattern—a manager agent evaluates worker agents.
 
 ---
 
