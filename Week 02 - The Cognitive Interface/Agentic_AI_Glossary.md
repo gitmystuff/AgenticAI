@@ -1,4 +1,4 @@
-# Agentic AI Glossary - Terms from Notebook 06
+# Agentic AI Glossary - Terms
 
 ## Quick Reference Guide for Students
 
