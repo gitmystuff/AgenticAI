@@ -574,14 +574,7 @@ time.sleep(2)  # Wait 2 seconds between requests
 
 ---
 
-## Next Lab Preview
-
-In **Week 3: Async Programming & Structured Output**, you'll learn:
-- Running multiple LLM calls in parallel (asyncio)
-- Forcing strict schemas with Pydantic
-- Handling concurrent agent workflows
-
-This lab laid the foundation—you now know *how* to call LLMs. Next, you'll learn to do it *efficiently* and *reliably*.
+This lab lays the foundation—you now know *how* to call LLMs. In a future lab, you'll learn to do it *efficiently* and *reliably*.
 
 ---
 
