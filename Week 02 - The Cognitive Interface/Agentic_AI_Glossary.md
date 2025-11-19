@@ -287,8 +287,8 @@ Response: "I think gpt-4o-mini was best, then claude..."
 **Methods to Enforce:**
 1. **Prompt Engineering:** "Respond with JSON, nothing else"
 2. **JSON Mode:** OpenAI's `response_format={"type": "json_object"}`
-3. **Function Calling:** Define explicit schemas (Week 4)
-4. **Pydantic Validation:** Type-checked parsing (Week 3)
+3. **Function Calling:** Define explicit schemas 
+4. **Pydantic Validation:** Type-checked parsing 
 
 ---
 
@@ -386,7 +386,7 @@ load_dotenv()  # Reads .env file in current directory
 
 ## 🧩 Advanced Patterns (Preview)
 
-### Async/Await (Preview of Week 3)
+### Async/Await 
 **Definition:** Running multiple operations concurrently without blocking.
 
 **Example:**
@@ -413,7 +413,7 @@ When calling 6 LLMs sequentially (as in the notebook), you waste time waiting. A
 
 ---
 
-### Pydantic Models (Preview of Week 3)
+### Pydantic Models 
 **Definition:** Python classes that validate and type-check data at runtime.
 
 **Example:**
@@ -543,43 +543,6 @@ A poorly optimized agent making 1M API calls/day could cost thousands of dollars
 
 ---
 
-## 🔗 Connection to Course Concepts
-
-### Week 2: The Cognitive Interface
-**Notebook Demonstrates:**
-- ✅ Building model-agnostic interfaces
-- ✅ Comparing context windows (Gemini 1M vs. GPT-4 128K)
-- ✅ Understanding tokenization (response lengths vary by model)
-
----
-
-### Week 3: Async Programming & Structured Output
-**Notebook Sets Up:**
-- The need for async (waiting for 6 sequential API calls)
-- The need for Pydantic (manual JSON parsing is fragile)
-
----
-
-### Week 4: Model Context Protocol (MCP)
-**Notebook Concept:**
-Swapping between providers is the foundation of MCP—formalizing "backends" into a standard protocol.
-
----
-
-### Week 8: Role-Based Teams (CrewAI)
-**Notebook Pattern:**
-LLM-as-Judge directly maps to CrewAI's manager agent evaluating worker agents.
-
----
-
-### Week 12: Evaluation & Observability
-**Notebook Is a Proof-of-Concept For:**
-- Automated quality assessment
-- Comparative benchmarking
-- Structured evaluation pipelines
-
----
-
 ## 📚 Additional Terms
 
 ### Token
@@ -682,6 +645,6 @@ Agents making rapid tool calls can hit rate limits—solutions:
 
 ---
 
-**Glossary Complete!**
+**Moving Forward**
 
 Refer back to this document as you build agentic systems in later weeks. Understanding these terms will help you make informed architectural decisions.
