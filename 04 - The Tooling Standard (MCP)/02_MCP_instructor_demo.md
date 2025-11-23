@@ -504,7 +504,9 @@ if __name__ == "__main__":
 ```
 
 **EXPLAIN:**  
-*"When `uv run task_manager_server.py` executes, the MCP framework introspects this module. It finds all imported functions with docstrings and type hints, then automatically generates the tool schema. This is why type hints and docstrings are mandatory for MCP tools."*
+In this MCP implementation, tools are manually defined in `task_manager_server.py`. The `@server.list_tools()` decorator registers a function that returns a list of `Tool` objects, where each Tool includes a manually-written name, description, and JSON schema for inputs.
+
+The `@server.call_tool()` decorator handles incoming tool calls and routes them to the appropriate functions in `task_manager.py`.
 
 ---
 
