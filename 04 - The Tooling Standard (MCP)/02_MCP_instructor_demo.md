@@ -377,15 +377,131 @@ def list_tasks(list_name: str, include_completed: bool = False) -> str:
 
 #### Demo Step 8: Create `task_manager_server.py`
 
-**Say to Students:**  
-*"This is the simplest file—it just imports and exposes our functions. Watch how minimal it is."*
 
 ```python
 # task_manager_server.py
-from task_manager import create_task_list, add_task, complete_task, list_tasks
+from mcp.server import Server
+from mcp.types import Tool, TextContent
+import mcp.server.stdio
+import json
 
-# That's it! By importing these functions, they become discoverable by the MCP framework
-# when uv runs this file.
+from task_manager import (
+    create_task_list,
+    add_task,
+    complete_task,
+    list_tasks
+)
+
+# Create the server instance
+server = Server("task-manager")
+
+@server.list_tools()
+async def list_available_tools() -> list[Tool]:
+    """List all available task management tools."""
+    return [
+        Tool(
+            name="create_task_list",
+            description="Create a new task list",
+            inputSchema={
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "description": "Name of the task list"
+                    }
+                },
+                "required": ["name"]
+            }
+        ),
+        Tool(
+            name="add_task",
+            description="Add a new task to a list",
+            inputSchema={
+                "type": "object",
+                "properties": {
+                    "list_name": {
+                        "type": "string",
+                        "description": "Name of the task list"
+                    },
+                    "task_description": {
+                        "type": "string",
+                        "description": "Description of the task"
+                    }
+                },
+                "required": ["list_name", "task_description"]
+            }
+        ),
+        Tool(
+            name="complete_task",
+            description="Mark a task as completed",
+            inputSchema={
+                "type": "object",
+                "properties": {
+                    "list_name": {
+                        "type": "string",
+                        "description": "Name of the task list"
+                    },
+                    "task_id": {
+                        "type": "integer",
+                        "description": "ID of the task to complete"
+                    }
+                },
+                "required": ["list_name", "task_id"]
+            }
+        ),
+        Tool(
+            name="list_tasks",
+            description="List all tasks in a task list",
+            inputSchema={
+                "type": "object",
+                "properties": {
+                    "list_name": {
+                        "type": "string",
+                        "description": "Name of the task list"
+                    },
+                    "include_completed": {
+                        "type": "boolean",
+                        "description": "Include completed tasks",
+                        "default": False
+                    }
+                },
+                "required": ["list_name"]
+            }
+        )
+    ]
+
+@server.call_tool()
+async def call_tool(name: str, arguments: dict) -> list[TextContent]:
+    """Handle tool calls."""
+    try:
+        if name == "create_task_list":
+            result = create_task_list(arguments["name"])
+        elif name == "add_task":
+            result = add_task(arguments["list_name"], arguments["task_description"])
+        elif name == "complete_task":
+            result = complete_task(arguments["list_name"], arguments["task_id"])
+        elif name == "list_tasks":
+            include_completed = arguments.get("include_completed", False)
+            result = list_tasks(arguments["list_name"], include_completed)
+        else:
+            result = f"Unknown tool: {name}"
+        
+        return [TextContent(type="text", text=result)]
+    except Exception as e:
+        return [TextContent(type="text", text=f"Error: {str(e)}")]
+
+async def main():
+    """Run the server."""
+    async with mcp.server.stdio.stdio_server() as (read_stream, write_stream):
+        await server.run(
+            read_stream,
+            write_stream,
+            server.create_initialization_options()
+        )
+
+if __name__ == "__main__":
+    import asyncio
+    asyncio.run(main())
 ```
 
 **PREDICT:**  
@@ -421,8 +537,8 @@ async def discover_tools():
         
         print(f"\n✓ Found {len(tools)} tools:\n")
         for tool in tools:
-            print(f"  • {tool['name']}")
-            print(f"    Description: {tool['description']}")
+            print(f"  • {tool.name}")
+            print(f"    Description: {tool.description}")
             print()
 
 # Run it
