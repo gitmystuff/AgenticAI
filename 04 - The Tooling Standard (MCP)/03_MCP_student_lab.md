@@ -193,7 +193,7 @@ if __name__ == "__main__":
 
 Run the test:
 ```bash
-python database.py
+uv run python database.py
 ```
 
 **✓ Checkpoint:** You should see `data/contactbook_test.json` and `data/log_test.json` created.
