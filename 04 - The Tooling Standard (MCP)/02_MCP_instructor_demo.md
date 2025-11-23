@@ -576,6 +576,7 @@ await discover_tools()  # If in Jupyter
 from dotenv import load_dotenv
 from agents import Agent, Runner, trace
 from agents.mcp import MCPServerStdio
+import asyncio
 
 load_dotenv(override=True)
 
@@ -619,7 +620,8 @@ async def run_agent_demo():
         print(result.final_output)
 
 # Execute
-await run_agent_demo()
+if __name__ == "__main__":
+    asyncio.run(run_agent_demo())
 ```
 
 **PREDICT (Before Running):**  
