@@ -373,10 +373,9 @@ def list_tasks(list_name: str, include_completed: bool = False) -> str:
 
 ---
 
-### 2.3 Create the MCP Server Entry Point
+### 2.3 Create the MCP Server
 
 #### Demo Step 8: Create `task_manager_server.py`
-
 
 ```python
 # task_manager_server.py
@@ -503,9 +502,6 @@ if __name__ == "__main__":
     import asyncio
     asyncio.run(main())
 ```
-
-**PREDICT:**  
-*"This file seems too simple. What's actually happening here? How does MCP know what tools exist?"*
 
 **EXPLAIN:**  
 *"When `uv run task_manager_server.py` executes, the MCP framework introspects this module. It finds all imported functions with docstrings and type hints, then automatically generates the tool schema. This is why type hints and docstrings are mandatory for MCP tools."*
