@@ -552,7 +552,7 @@ if __name__ == "__main__":
 ### Task 4.2: Run Your Tests
 
 ```bash
-python test_agent.py
+uv run python test_agent.py
 ```
 
 **Expected Output:**
