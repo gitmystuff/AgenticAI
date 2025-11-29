@@ -439,7 +439,7 @@ Pydantic catches these issues before they crash your agent.
 
 ---
 
-### Model Context Protocol (MCP) (Preview of Week 4)
+### Model Context Protocol (MCP) 
 **Definition:** Anthropic's open standard for safely connecting LLMs to external tools (filesystems, databases, APIs).
 
 **How It Relates to This Notebook:**
@@ -448,7 +448,7 @@ The notebook demonstrates the *concept* of swapping backends—MCP formalizes th
 - Security boundaries (what files can agents access?)
 - Stateful connections (agents remember database sessions)
 
-**Week 4 Implementation:**
+**Implementation:**
 Instead of manually coding each tool, MCP provides:
 ```python
 # Declarative tool definition
@@ -461,7 +461,7 @@ And agents automatically discover it.
 
 ---
 
-### Function Calling (Preview of Week 4)
+### Function Calling 
 **Definition:** OpenAI's (and others') API feature that lets you define tools LLMs can invoke.
 
 **How It Works:**
