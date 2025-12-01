@@ -5,6 +5,7 @@
 **Target Audience:** Agentic AI Class  
 **Duration:** 45-60 Minutes  
 **Learning Objective:** Master the mental process of decomposing complex, vague goals into structured, executable subtasks suitable for multi-agent systems.
+**Reading:** https://github.com/sarwarbeing-ai/Agentic_Design_Patterns 
 
 ---
 
