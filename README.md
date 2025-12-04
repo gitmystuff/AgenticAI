@@ -17,6 +17,19 @@ Refer to the following for installation if needed:
 * Git: Download from git-scm.com
 * VSCode: Download from code.visualstudio.com
 
+### Install VSCode
+
+* Install VS Code - https://code.visualstudio.com/download 
+
+#### VS Code Extensions - The Core Essentials
+These are the absolute must-haves for any data science work in VS Code.
+* **Python by Microsoft** - Why you need it: This is the foundational extension. It provides rich support for the Python language, including IntelliSense (smart code completion), linting (finding errors), debugging, code navigation, and code formatting. It's the engine that powers almost everything else on this list.
+* **Jupyter by Microsoft** - Why you need it: This extension transforms VS Code into a fully-featured Jupyter environment. It allows you to create, open, and edit .ipynb files directly. It includes a variable explorer, plot viewer, and data table viewer, giving you that classic notebook experience with the power of a modern IDE. (Note: This is often installed automatically with the main Python extension).
+* **Pylance by Microsoft** - Why you need it: Pylance supercharges the Python extension with fast, feature-rich language support. It provides highly accurate type-checking and intelligent auto-completions that will significantly speed up your coding. (Note: This is also usually installed with the Python extension).
+* **Data Exploration and Management** - These tools help you look at and interact with your data.
+* **Data Wrangler by Microsoft** - Why you need it: An incredible tool for data cleaning and preparation. It provides a graphical interface to view and transform your dataframes (like Pandas). It automatically generates the Python code for any cleaning operations you perform, which is fantastic for reproducibility.
+* **Rainbow CSV by mechatroner** - Why you need it: This simple extension makes CSV files much more readable by highlighting each column in a different color. It's surprisingly effective when you're scanning through large datasets.
+
 ### Install UV (Python Package Manager)
 
 By default, uv is installed to a path like ~/.cargo/bin on Unix-like systems, which may require the user to close and reopen their terminal (or run a shell-specific command like source ~/.bashrc) to have the uv command available globally in that session.
