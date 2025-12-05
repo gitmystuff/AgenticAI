@@ -1,6 +1,6 @@
-# Agentic Playground
-
-IMAGE
+<div align="center">
+<img src="https://github.com/gitmystuff/agentic-playground/blob/main/files/playground01.jpg?raw=True" alt="agentic playground"/>
+</div>
 
 ### Prerequisites - Install Required Software
 
